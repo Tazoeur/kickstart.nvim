@@ -32,6 +32,8 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['<C-v>'] = 'open_vsplit',
+          ['<C-s>'] = 'open_split',
         },
       },
     },
