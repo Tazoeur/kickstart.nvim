@@ -5,12 +5,12 @@ return {
   cmd = { 'ConformInfo' },
   keys = {
     {
-      '<leader>f',
+      '<leader>cf',
       function()
         require('conform').format { async = true, lsp_format = 'fallback' }
       end,
       mode = '',
-      desc = '[F]ormat buffer',
+      desc = '[C]ode: [F]ormat buffer',
     },
   },
   opts = {
@@ -34,7 +34,7 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
-      python = { 'ruff' },
+      python = { 'ruff check --fix' },
       toml = { 'taplo' },
       markdown = { 'markdownlint' },
       --
