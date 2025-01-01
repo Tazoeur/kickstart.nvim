@@ -114,6 +114,7 @@ return {
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+          map('<C-h>', vim.lsp.buf.signature_help, 'Signature help', 'i')
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
@@ -181,22 +182,23 @@ return {
         },
         pyright = {
           settings = {
-            pyright = {
-              disableOrganizeImports = true, -- Using ruff
-            },
-            python = {
-              analysis = {
-                ignore = { '*' }, -- Using ruff
-                typeCheckingMode = 'off', -- Using mypy
-              },
+            disableOrganizeImports = true, -- Using ruff
+            analysis = {
+              ignore = { '*' }, -- Using ruff
+              typeCheckingMode = 'off', -- Using mypy
             },
           },
-          filetypes = { 'python' },
         },
         mypy = {},
         ruff = {},
         markdownlint = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {
+          settings = {
+            files = {
+              excludeDirs = { 'target' },
+            },
+          },
+        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -226,12 +228,6 @@ return {
         },
       }
 
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
-      --  other tools, you can run
-      --    :Mason
-      --
-      --  You can press `g?` for help in this menu.
       require('mason').setup()
 
       -- You can add other tools here that you want Mason to install
