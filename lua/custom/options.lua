@@ -74,3 +74,7 @@ vim.opt.scrolloff = 10
 -- set spell checker
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+
+-- others
+vim.opt.swapfile = false
+-- vim.opt.winborder = 'rounded'

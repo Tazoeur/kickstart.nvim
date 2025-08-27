@@ -33,3 +33,5 @@ vim.keymap.set('i', '<C-BS>', '<Esc>ciw', { silent = true, desc = 'Delete word u
 
 vim.keymap.set('n', '<A-l>', '<cmd>cnext<CR>', { desc = 'Go to next item in quicklist' })
 vim.keymap.set('n', '<A-h>', '<cmd>cprev<CR>', { desc = 'Go to previous item in quicklist' })
+
+vim.keymap.set('n', '<leader>r', ':update<CR> :source<CR> :echo "NVIM configuration file reloaded"<CR>')
